@@ -1,7 +1,8 @@
 import { ChakraProvider, Box, theme } from "@chakra-ui/react";
-import { digitalManagement } from "./declarations/data";
+import { digitalManagement, informationSystems } from "./declarations/data";
 import { ProgrammeLevel } from "./declarations/types";
 import { showRewards } from "./components/showRewards";
+import { RequirementsBox } from "./components/requirementsBox";
 
 export const App = () => (
 	<ChakraProvider theme={theme}>
@@ -11,6 +12,14 @@ export const App = () => (
 				{digitalManagement.title}
 			</Box>
 			{showRewards(digitalManagement.mandatoryCourses)}
+			<Box>
+				<Box>
+					{`${ProgrammeLevel[informationSystems.programmeLevel]}: ${
+						informationSystems.title
+					}`}
+				</Box>
+				<RequirementsBox requirements={informationSystems.requirements} />
+			</Box>
 		</Box>
 	</ChakraProvider>
 );
