@@ -13,10 +13,21 @@ export enum ProgrammeLevel {
 	"Graduate",
 }
 
-// TODO: compound requirements (e.g. 5 ECTS in Macro and/or Micro)
+export enum Condition {
+	AND,
+	OR,
+}
+
+// note -> programmes that are impossible to get in can be judged by the amount of remaining ects in your bsc
+
 export type Requirement = {
 	area: Area;
 	creditsInECTS: number;
+};
+
+export type CompoundRequirement = {
+	requirements: Requirement[];
+	condition: Condition;
 };
 
 export type Reward = {
