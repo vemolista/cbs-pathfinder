@@ -1,19 +1,25 @@
 export enum Area {
-	MACRO = "Macroeconomics",
-	MICRO = "Microeconomics",
-	BA = "Business Administration",
-	IT = "IT",
-	FINANCE = "Finance",
-	ACC = "Accounting",
-	MARKETING = "Marketing",
+	"Macroeconomics",
+	"Microeconomics",
+	"Business Administration",
+	"IT",
+	"Finance",
+	"Accounting",
+	"Marketing",
 }
 
 export enum ProgrammeLevel {
-	UNDERGRADUATE,
-	GRADUATE,
+	"Undergraduate",
+	"Graduate",
 }
 
+// TODO: compound requirements (e.g. 5 ECTS in Macro and/or Micro)
 export type Requirement = {
+	area: Area;
+	creditsInECTS: number;
+};
+
+export type Reward = {
 	area: Area;
 	creditsInECTS: number;
 };
@@ -21,7 +27,7 @@ export type Requirement = {
 export type Course = {
 	code: string;
 	title: string;
-	rewards: Requirement[];
+	rewards: Reward[];
 };
 
 export type Programme = {
