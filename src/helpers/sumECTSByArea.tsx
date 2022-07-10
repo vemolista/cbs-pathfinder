@@ -1,9 +1,9 @@
-import { Area, Course, Reward } from "../declarations/types";
+import { Area, Course, CourseReward } from "../declarations/types";
 
 // going Array -> Map -> Array is kinda sus
 // but I'm just gonna let that go, because I'm so fucking rusty
 export const sumECTSbyArea = (courses: Course[]) => {
-	let rewards: Reward[] = [];
+	let rewards: CourseReward[] = [];
 
 	courses.map((course) => course.rewards.map((reward) => rewards.push(reward)));
 
