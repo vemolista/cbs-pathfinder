@@ -1,56 +1,6 @@
 import { Rule } from "json-rules-engine";
 import { Area, Programme, ProgrammeLevel } from "../types";
 
-let informationSystemsRulesSplit = [
-	new Rule({
-		conditions: {
-			all: [
-				{
-					fact: Area[Area.IT],
-					operator: "greaterThanInclusive",
-					value: 30,
-				},
-			],
-		},
-		event: {
-			type: "IT",
-		},
-	}),
-	new Rule({
-		conditions: {
-			all: [
-				{
-					fact: Area[Area["Business Administration"]],
-					operator: "greaterThanInclusive",
-					value: 25,
-				},
-			],
-		},
-		event: {
-			type: "Business Administration",
-		},
-	}),
-	new Rule({
-		conditions: {
-			any: [
-				{
-					fact: Area[Area.Microeconomics],
-					operator: "greaterThanInclusive",
-					value: 5,
-				},
-				{
-					fact: Area[Area.Macroeconomics],
-					operator: "greaterThanInclusive",
-					value: 5,
-				},
-			],
-		},
-		event: {
-			type: "Microeconomics / Macroeconomics",
-		},
-	}),
-];
-
 let informationSystemsRulesCompound = new Rule({
 	name: "IS Admissions",
 	conditions: {
