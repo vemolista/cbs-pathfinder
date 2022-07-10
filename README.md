@@ -14,7 +14,7 @@ CBS has over 60 programmes, approximately half-half undergraduate-graduate. Maki
 
 The objective of the Programme Portfolio Review was to simplify the portfolio, so that it would be more easily comprehensible by a variety of stakeholders.
 
-I have been a part of this group for about 1.5 years and as far as I can say, the only meaningful outcome for students was this: **the whole group** agreed that we should build an interface that helps (undergraduate) students understand their options in terms of progressing through CBS.
+I have been a part of this group for about 1.5 years and as far as I can say, the only meaningful outcome for students was this: the group agreed (or disagreed silently :D ) that we should build an interface that helps (undergraduate) students understand their options in terms of progressing through CBS.
 
 Something along the lines of
 
@@ -27,6 +27,6 @@ Something along the lines of
       - show which criteria need to be fulfilled
    4. unfulfillable criteria
 
-**EVERYONE** agreed this interface/app/what-have-you should be built. But then circumstances happened, lack of resources, public institution bureaucracy...
+Nevertheless, then circumstances happened, lack of resources, public institution bureaucracy...
 
 So anyway, I decided to build it myself, right here in this very repo (☞ ͡° ͜ʖ ͡°)☞
