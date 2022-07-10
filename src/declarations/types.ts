@@ -1,3 +1,5 @@
+import { Rule } from "json-rules-engine";
+
 export enum Area {
 	"Macroeconomics",
 	"Microeconomics",
@@ -13,21 +15,6 @@ export enum ProgrammeLevel {
 	"Graduate",
 }
 
-export enum Condition {
-	AND,
-	OR,
-}
-
-export type Requirement = {
-	area: Area;
-	creditsInECTS: number;
-};
-
-export type CompoundRequirement = {
-	requirements: Requirement[];
-	condition: Condition;
-};
-
 export type Reward = {
 	area: Area;
 	creditsInECTS: number;
@@ -41,7 +28,8 @@ export type Course = {
 
 export type Programme = {
 	title: string;
+	abbreviation: string;
 	programmeLevel: ProgrammeLevel;
 	mandatoryCourses: Course[];
-	requirements?: Requirement[];
+	requirements?: Rule;
 };
