@@ -2,31 +2,19 @@ import { Engine, Rule } from "json-rules-engine";
 
 interface SomethingProps {
 	rule: Rule;
-	record: any;
+	fact: Record<string, number>;
 }
 
 export const Something = (props: SomethingProps) => {
-	const { rule, record } = props;
-
-	let poop: string = "poop";
+	const { rule, fact } = props;
 
 	(() => {
 		const engine = new Engine();
 
 		engine.addRule(rule);
 
-		console.log("record:", record);
-
-		engine.on("success", () => console.log("success"));
-		engine.on("failure", () => console.log("failure"));
-
-		engine.run({
-			IT: 30,
-			"Business Administration": 25,
-			Microeconomics: 5,
-			Macroeconomics: 0,
-		});
+		engine.run(fact);
 	})();
 
-	return <div>{poop}</div>;
+	return <div></div>;
 };

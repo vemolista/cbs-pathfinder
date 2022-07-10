@@ -1,8 +1,8 @@
 import { ChakraProvider, Box, theme } from "@chakra-ui/react";
-import { digitalManagement } from "./declarations/undergraduateProgrammes/digitalManagement";
 import { Something } from "./components/something";
 import { informationSystems } from "./declarations/graduateProgrammes/informationSystems";
-import { sumECTSbyArea } from "./helpers/sumECTSByArea";
+import { getPassedECTSByAreaToEvaluateAdmissionRule } from "./helpers/getPassedECTSByAreaToEvaluateAdmissionRule";
+import { testStudent } from "./declarations/testStudent";
 
 export const App = () => (
 	<ChakraProvider theme={theme}>
@@ -12,7 +12,7 @@ export const App = () => (
 			</Box>
 			<Something
 				rule={informationSystems.requirements!}
-				record={sumECTSbyArea(digitalManagement.mandatoryCourses)}
+				fact={getPassedECTSByAreaToEvaluateAdmissionRule(testStudent)}
 			></Something>
 		</Box>
 	</ChakraProvider>

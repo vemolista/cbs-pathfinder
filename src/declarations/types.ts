@@ -15,7 +15,7 @@ export enum ProgrammeLevel {
 	"Graduate",
 }
 
-export type Reward = {
+export type CourseReward = {
 	area: Area;
 	creditsInECTS: number;
 };
@@ -23,7 +23,7 @@ export type Reward = {
 export type Course = {
 	code: string;
 	title: string;
-	rewards: Reward[];
+	rewards: CourseReward[];
 };
 
 export type Programme = {
@@ -32,4 +32,8 @@ export type Programme = {
 	programmeLevel: ProgrammeLevel;
 	mandatoryCourses: Course[];
 	requirements?: Rule;
+};
+
+export type Student = {
+	passedCourses: Course[];
 };
