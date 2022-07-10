@@ -33,3 +33,7 @@ export type Programme = {
 	mandatoryCourses: Course[];
 	requirements?: Rule;
 };
+
+export type Student = {
+	passedCourses: Course[];
+};
