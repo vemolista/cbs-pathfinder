@@ -1,15 +1,13 @@
-import { Area, CourseReward, Student } from "../declarations/types";
+import { Area, Course, CourseReward, Student } from "../declarations/types";
 
 // going Array -> Map -> Array is kinda sus
 // TODO: refactor
 export const getPassedECTSByAreaToEvaluateAdmissionRule = (
-	student: Student
+	courses: Course[]
 ) => {
 	let rewards: CourseReward[] = [];
 
-	student.passedCourses.map((course) =>
-		course.rewards.map((reward) => rewards.push(reward))
-	);
+	courses.map((course) => course.rewards.map((reward) => rewards.push(reward)));
 
 	const passedECTSForArea = new Map<string, number>();
 
