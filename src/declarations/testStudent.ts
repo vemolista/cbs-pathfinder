@@ -8,11 +8,15 @@ export const testStudent: Student = {
 			rewards: [
 				{
 					area: Area.IT,
-					creditsInECTS: 5,
+					creditsInECTS: 30,
 				},
 				{
 					area: Area["Business Administration"],
-					creditsInECTS: 10,
+					creditsInECTS: 20,
+				},
+				{
+					area: Area.Microeconomics,
+					creditsInECTS: 5,
 				},
 			],
 		},
