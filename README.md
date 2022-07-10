@@ -1,59 +1,32 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# Project Pathfinder
 
-## Available Scripts
+## Purpose
 
-In the project directory, you can run:
+Ease the process of figuring out admission requirements at [Copenhagen Business School (CBS)](https://www.cbs.dk/en).
 
-### `npm start`
+## Background
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+Across my years at CBS, I [(Tomas Vemola)](https://www.linkedin.com/in/tomasvemola/) have been a part of a number of steering groups, working groups and initiatives across CBS.
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+One of those initiatives was the "Programme Portfolio Review".
 
-### `npm test`
+CBS has over 60 programmes, approximately half-half undergraduate-graduate. Making sense of the portfolio is a major hurdle - for employers, and students alike.
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+The objective of the Programme Portfolio Review was to simplify the portfolio, so that it would be more easily comprehensible by a variety of stakeholders.
 
-### `npm run build`
+I have been a part of this group for about 1.5 years and as far as I can say, the only meaningful outcome for students was this: **the whole group** agreed that we should build an interface that helps (undergraduate) students understand their options in terms of progressing through CBS.
 
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
+Something along the lines of
 
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
+1. select all courses that you have passed
+2. click a magic button
+3. get a list of your options for a graduate programme
+   1. legal claim (certainty of admission under Danish legal system)
+   2. fulfilling all criteria (possibility of admission)
+   3. not fulfilling all criteria (possibility of admission if criteria are fulfilled)
+      - show which criteria need to be fulfilled
+   4. unfulfillable criteria
 
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+**EVERYONE** agreed this interface/app/what-have-you should be built. But then circumstances happened, lack of resources, public institution bureaucracy...
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+So anyway, I decided to build it myself, right here in this very repo (☞ ͡° ͜ʖ ͡°)☞
