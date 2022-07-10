@@ -1,7 +1,8 @@
-import { Area, Programme, ProgrammeLevel } from "./types";
+import { Area, Programme, ProgrammeLevel } from "../types";
 
 export const digitalManagement: Programme = {
 	title: "BSc BA and Digital Management",
+	abbreviation: "DM",
 	programmeLevel: ProgrammeLevel.Undergraduate,
 	mandatoryCourses: [
 		{
@@ -55,27 +56,6 @@ export const digitalManagement: Programme = {
 					creditsInECTS: 7.5,
 				},
 			],
-		},
-	],
-};
-
-export const informationSystems: Programme = {
-	title: "MSc Business Administration and Information Systems",
-	programmeLevel: ProgrammeLevel.Graduate,
-	mandatoryCourses: [],
-	requirements: [
-		{
-			area: Area.IT,
-			creditsInECTS: 30,
-		},
-		{
-			area: Area["Business Administration"],
-			creditsInECTS: 25,
-		},
-		// TODO: change when compound requirements available
-		{
-			area: Area.Microeconomics,
-			creditsInECTS: 5,
 		},
 	],
 };
