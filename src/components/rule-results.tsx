@@ -14,23 +14,39 @@ export const RuleResults = (props: RuleResultsProps) => {
 		return conditions.any || conditions.all;
 	};
 
-	const render = (conditions: any) => {
-		isTopLevelCondition(conditions)
-			? conditions.all
-				? conditions.all.map((item: any) =>
-						isTopLevelCondition(item)
-							? render(item)
-							: console.log("all", item.fact)
-				  )
-				: conditions.any.map((item: any) =>
-						isTopLevelCondition(item)
-							? render(item)
-							: console.log("any", item.fact)
-				  )
-			: console.log("not (any or all)");
+	const betterRender = (conditions: any) => {
+		if (!isTopLevelCondition(conditions)) return conditions.fact;
+
+		if (conditions.all) {
+			conditions.all.map((item: any) =>
+				isTopLevelCondition(item)
+					? betterRender(item)
+					: console.log(
+							"all",
+							item.fact,
+							item.value,
+							item.operator,
+							item.factResult,
+							item.result
+					  )
+			);
+		} else {
+			conditions.any.map((item: any) =>
+				isTopLevelCondition(item)
+					? betterRender(item)
+					: console.log(
+							"any",
+							item.fact,
+							item.value,
+							item.operator,
+							item.factResult,
+							item.result
+					  )
+			);
+		}
 	};
 
-	render(temp.conditions);
+	betterRender(temp.conditions);
 
 	return (
 		<Box border={"2px solid green"}>
