@@ -6,8 +6,8 @@ import {
 	UnorderedList,
 	Text,
 } from "@chakra-ui/react";
-import { Rule, RuleResult } from "json-rules-engine";
-import { useEffect, useState } from "react";
+import { RuleResult } from "json-rules-engine";
+import { useState } from "react";
 import {
 	BA_BDMAO1002U,
 	BA_BDMAO1022U,

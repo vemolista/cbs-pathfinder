@@ -1,4 +1,4 @@
-import { Rule, RuleResult, Engine } from "json-rules-engine";
+import { Rule, Engine } from "json-rules-engine";
 
 export const getRuleResult = async (
 	rule: Rule,
