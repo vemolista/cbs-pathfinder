@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { Course } from "../declarations/types";
 import { getCourseTotalECTS } from "../helpers/getCourseTotalECTS";
+
 interface CourseProps {
 	course: Course;
 	passedCourses: Course[];
