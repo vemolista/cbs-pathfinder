@@ -5,6 +5,7 @@ import {
 	HStack,
 	UnorderedList,
 	Text,
+	Heading,
 } from "@chakra-ui/react";
 import { RuleResult } from "json-rules-engine";
 import { useState } from "react";
@@ -47,7 +48,10 @@ export const CourseList = () => {
 					Crunch it!
 				</Button>
 			</HStack>
-			{ruleResult && <RuleResults ruleResult={ruleResult} />}
+			{ruleResult && (
+				<Heading>Admission criteria for Information Systems</Heading>
+			)}
+			{ruleResult && <RuleResults ruleResult={ruleResult[0].conditions} />}
 			<UnorderedList styleType={"none"}>
 				{courses.map((course, i) => {
 					return (
