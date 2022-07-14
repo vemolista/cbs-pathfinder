@@ -7,7 +7,7 @@ import {
 	Text,
 	VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Course } from "../declarations/types";
 import { getCourseTotalECTS } from "../helpers/getCourseTotalECTS";
 interface CourseProps {
@@ -21,6 +21,11 @@ export const SingleCourse = (props: CourseProps) => {
 	const { code, title, rewards } = course;
 
 	const [checked, setChecked] = useState(false);
+
+	useEffect(() => {
+		if (passedCourses.includes(course)) setChecked(true);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const handleChange = (course: Course) => {
 		if (checked) {
@@ -47,6 +52,7 @@ export const SingleCourse = (props: CourseProps) => {
 							size={"lg"}
 							marginRight={5}
 							onChange={() => handleChange(course)}
+							isChecked={checked}
 						/>
 						<VStack alignItems={"flex-start"}>
 							<Text>{title}</Text>
