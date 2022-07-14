@@ -19,18 +19,18 @@ export const RuleResults = (props: RuleResultsProps) => {
 		<Box>
 			<UnorderedList>
 				{isTopLevelCondition(temp) && temp.all
-					? temp.all.map((item: any) => {
+					? temp.all.map((item: any, i: number) => {
 							return isTopLevelCondition(item) ? (
-								<RuleResults ruleResult={item} />
+								<RuleResults key={i} ruleResult={item} />
 							) : (
-								<SingleRuleResult ruleResult={item} />
+								<SingleRuleResult key={i} ruleResult={item} />
 							);
 					  })
-					: temp.any.map((item: any) => {
+					: temp.any.map((item: any, i: number) => {
 							return isTopLevelCondition(item) ? (
-								<RuleResults ruleResult={item} />
+								<RuleResults key={i} ruleResult={item} />
 							) : (
-								<SingleRuleResult ruleResult={item} />
+								<SingleRuleResult key={i} ruleResult={item} />
 							);
 					  })}
 			</UnorderedList>
