@@ -1,13 +1,10 @@
 import {
 	Badge,
 	Box,
-	Button,
 	Checkbox,
-	Flex,
 	HStack,
 	ListItem,
 	Text,
-	UnorderedList,
 	VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";

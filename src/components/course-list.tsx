@@ -1,11 +1,4 @@
-import {
-	Badge,
-	Box,
-	HStack,
-	UnorderedList,
-	Text,
-	VStack,
-} from "@chakra-ui/react";
+import { Badge, Box, HStack, UnorderedList, Text } from "@chakra-ui/react";
 import {
 	BA_BDMAO1002U,
 	BA_BDMAO1022U,
