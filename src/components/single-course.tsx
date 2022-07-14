@@ -2,14 +2,17 @@ import {
 	Badge,
 	Box,
 	Button,
+	Checkbox,
+	Flex,
 	HStack,
 	ListItem,
 	Text,
 	UnorderedList,
+	VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { Course } from "../declarations/types";
-import { SingleReward } from "./single-reward";
-
+import { getCourseTotalECTS } from "../helpers/getCourseTotalECTS";
 interface CourseProps {
 	course: Course;
 	passedCourses: Course[];
@@ -20,45 +23,45 @@ export const SingleCourse = (props: CourseProps) => {
 	const { course, passedCourses, setPassedCourses } = props;
 	const { code, title, rewards } = course;
 
-	const addCourse = (course: Course) => {
-		setPassedCourses([...passedCourses, course]);
-	};
+	const [checked, setChecked] = useState(false);
 
-	const removeCourse = (course: Course) => {
-		setPassedCourses(passedCourses.filter((item) => item !== course));
+	const handleChange = (course: Course) => {
+		if (checked) {
+			setPassedCourses(passedCourses.filter((item) => item !== course));
+			setChecked(!checked);
+		} else {
+			setPassedCourses([...passedCourses, course]);
+			setChecked(!checked);
+		}
 	};
 
 	return (
-		<ListItem border={"2px solid black"}>
-			<Box padding={5}>
-				<HStack>
-					<Text>{title}</Text>
-					<Badge>{code}</Badge>
-				</HStack>
-				<Box border={"2px solid black"} padding={5} margin={5}>
-					<UnorderedList styleType={"none"}>
-						{rewards.map((reward, i) => (
-							<SingleReward reward={reward} key={i} />
-						))}
-					</UnorderedList>
+		<Box
+			border={"1px solid lightgray"}
+			borderRadius={"base"}
+			margin={2}
+			boxShadow={"md"}
+			transitionDuration={"300ms"}
+			bg={checked ? "green.100" : "white"}
+		>
+			<ListItem>
+				<Box padding={5}>
+					<HStack>
+						<Checkbox
+							size={"lg"}
+							marginRight={5}
+							onChange={() => handleChange(course)}
+						/>
+						<VStack alignItems={"flex-start"}>
+							<Text>{title}</Text>
+							<HStack>
+								<Badge>{code}</Badge>
+								<Badge>{getCourseTotalECTS(rewards)} ECTS</Badge>
+							</HStack>
+						</VStack>
+					</HStack>
 				</Box>
-				<HStack spacing={5}>
-					<Button
-						color={"green"}
-						onClick={() => addCourse(course)}
-						disabled={passedCourses.includes(course)}
-					>
-						I passed this!
-					</Button>
-					<Button
-						color={"red"}
-						onClick={() => removeCourse(course)}
-						disabled={!passedCourses.includes(course)}
-					>
-						Nevermind
-					</Button>
-				</HStack>
-			</Box>
-		</ListItem>
+			</ListItem>
+		</Box>
 	);
 };
