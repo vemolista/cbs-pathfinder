@@ -7,6 +7,7 @@ import {
 	Input,
 	InputGroup,
 	InputLeftAddon,
+	Heading,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import {
@@ -37,8 +38,15 @@ export const CourseList = (props: CourseListProps) => {
 	};
 
 	return (
-		<Box border={"1px solid lightgray"}>
-			<HStack padding={2} justify="space-between">
+		<Box border={"1px solid lightgray"} padding={5}>
+			<HStack
+				padding={5}
+				justify="space-between"
+				margin={5}
+				border={"1px solid lightgray"}
+				borderRadius={"base"}
+				boxShadow={"md"}
+			>
 				<HStack>
 					<Text>Number of passed courses:</Text>
 					<Badge fontSize={"2xl"}>{passedCourses.length}</Badge>
@@ -51,6 +59,7 @@ export const CourseList = (props: CourseListProps) => {
 					/>
 				</InputGroup>
 			</HStack>
+			<Heading as={"h3"}>Courses</Heading>
 			<UnorderedList styleType={"none"} spacing={2} margin={5}>
 				{search().map((course, i) => (
 					<SingleCourse
