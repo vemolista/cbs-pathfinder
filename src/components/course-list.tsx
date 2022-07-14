@@ -1,4 +1,11 @@
-import { Badge, Box, HStack, UnorderedList, Text } from "@chakra-ui/react";
+import {
+	Badge,
+	Box,
+	HStack,
+	UnorderedList,
+	Text,
+	VStack,
+} from "@chakra-ui/react";
 import {
 	BA_BDMAO1002U,
 	BA_BDMAO1022U,
@@ -18,7 +25,7 @@ export const CourseList = (props: CourseListProps) => {
 	const courses = [BA_BDMAO1002U, BA_BDMAO1022U, BA_BDMAO1023U, BA_BDMAO1024U];
 
 	return (
-		<Box>
+		<Box border={"1px solid lightgray"}>
 			<HStack>
 				<HStack border={"1px solid"} padding={2}>
 					<Text>Number of passed courses:</Text>
