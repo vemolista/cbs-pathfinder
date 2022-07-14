@@ -3,6 +3,7 @@ import { TopLevelCondition } from "json-rules-engine";
 import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
+	// TODO: rename to reflect the type that's expected
 	ruleResult: TopLevelCondition;
 }
 
