@@ -46,24 +46,22 @@ export const SingleCourse = (props: CourseProps) => {
 			transitionDuration={"300ms"}
 			bg={checked ? "green.100" : "white"}
 		>
-			<ListItem>
-				<Box padding={5}>
-					<HStack>
-						<Checkbox
-							size={"lg"}
-							marginRight={5}
-							onChange={() => handleChange(course)}
-							isChecked={checked}
-						/>
-						<VStack alignItems={"flex-start"}>
-							<Text>{title}</Text>
-							<HStack>
-								<Badge>{code}</Badge>
-								<Badge>{getCourseTotalECTS(rewards)} ECTS</Badge>
-							</HStack>
-						</VStack>
-					</HStack>
-				</Box>
+			<ListItem padding={5}>
+				<HStack>
+					<Checkbox
+						size={"lg"}
+						marginRight={5}
+						onChange={() => handleChange(course)}
+						isChecked={checked}
+					/>
+					<VStack alignItems={"flex-start"}>
+						<Text>{title}</Text>
+						<HStack>
+							<Badge>{code}</Badge>
+							<Badge>{getCourseTotalECTS(rewards)} ECTS</Badge>
+						</HStack>
+					</VStack>
+				</HStack>
 			</ListItem>
 		</Box>
 	);
