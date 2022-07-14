@@ -1,5 +1,6 @@
-import { Box, HStack, ListItem, UnorderedList } from "@chakra-ui/react";
-import { RuleResult, TopLevelCondition } from "json-rules-engine";
+import { Box, UnorderedList } from "@chakra-ui/react";
+import { TopLevelCondition } from "json-rules-engine";
+import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
 	ruleResult: TopLevelCondition;
@@ -8,7 +9,8 @@ interface RuleResultsProps {
 export const RuleResults = (props: RuleResultsProps) => {
 	const { ruleResult } = props;
 
-	const temp = JSON.parse(JSON.stringify(ruleResult));
+	// TODO: render the typed object instead of doing this
+	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(ruleResult));
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
@@ -18,15 +20,16 @@ export const RuleResults = (props: RuleResultsProps) => {
 	return (
 		<Box>
 			<UnorderedList>
-				{isTopLevelCondition(temp) && temp.all
-					? temp.all.map((item: any, i: number) => {
+				{isTopLevelCondition(ruleResultWithoutTypes) &&
+				ruleResultWithoutTypes.all
+					? ruleResultWithoutTypes.all.map((item: any, i: number) => {
 							return isTopLevelCondition(item) ? (
 								<RuleResults key={i} ruleResult={item} />
 							) : (
 								<SingleRuleResult key={i} ruleResult={item} />
 							);
 					  })
-					: temp.any.map((item: any, i: number) => {
+					: ruleResultWithoutTypes.any.map((item: any, i: number) => {
 							return isTopLevelCondition(item) ? (
 								<RuleResults key={i} ruleResult={item} />
 							) : (
