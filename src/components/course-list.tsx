@@ -5,6 +5,8 @@ import {
 	UnorderedList,
 	Text,
 	Input,
+	InputGroup,
+	InputLeftAddon,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import {
@@ -36,25 +38,28 @@ export const CourseList = (props: CourseListProps) => {
 
 	return (
 		<Box border={"1px solid lightgray"}>
-			<HStack border={"1px solid"} padding={2}>
-				<Text>Number of passed courses:</Text>
-				<Badge fontSize={"2xl"}>{passedCourses.length}</Badge>
-				<Input
-					value={searchValue}
-					onChange={(e) => setSearchValue(e.target.value)}
-				/>
+			<HStack padding={2} justify="space-between">
+				<HStack>
+					<Text>Number of passed courses:</Text>
+					<Badge fontSize={"2xl"}>{passedCourses.length}</Badge>
+				</HStack>
+				<InputGroup maxWidth={"40%"} alignSelf={"flex-end"}>
+					<InputLeftAddon children={"Search by course title"} />
+					<Input
+						value={searchValue}
+						onChange={(e) => setSearchValue(e.target.value)}
+					/>
+				</InputGroup>
 			</HStack>
 			<UnorderedList styleType={"none"} spacing={2} margin={5}>
-				{search().map((course, i) => {
-					return (
-						<SingleCourse
-							course={course}
-							key={i}
-							passedCourses={passedCourses}
-							setPassedCourses={setPassedCourses}
-						/>
-					);
-				})}
+				{search().map((course, i) => (
+					<SingleCourse
+						course={course}
+						key={course.code + i}
+						passedCourses={passedCourses}
+						setPassedCourses={setPassedCourses}
+					/>
+				))}
 			</UnorderedList>
 		</Box>
 	);
