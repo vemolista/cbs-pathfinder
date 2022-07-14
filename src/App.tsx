@@ -8,9 +8,16 @@ import { Course } from "./declarations/types";
 import { getPassedECTSByAreaToEvaluateAdmissionRule } from "./helpers/getPassedECTSByAreaToEvaluateAdmissionRule";
 import { getRuleResult } from "./helpers/getRuleResult";
 
+enum Step {
+	"Input",
+	"Results",
+}
+
 export const App = () => {
+	const [step, setStep] = useState<Step>(Step.Input);
 	const [ruleResult, setRuleResult] = useState<RuleResult[]>();
 	const [passedCourses, setPassedCourses] = useState<Course[]>([]);
+	let stepComponent;
 
 	const handleClick = async () => {
 		setRuleResult(
@@ -19,7 +26,30 @@ export const App = () => {
 				getPassedECTSByAreaToEvaluateAdmissionRule(passedCourses)
 			)
 		);
+
+		setStep(Step.Results);
 	};
+
+	switch (step) {
+		case Step.Input:
+			stepComponent = (
+				<CourseList
+					passedCourses={passedCourses}
+					setPassedCourses={setPassedCourses}
+				/>
+			);
+			break;
+		case Step.Results:
+			stepComponent = ruleResult && (
+				<Box>
+					<Heading>Admission criteria for Information Systems</Heading>
+					<RuleResults ruleResult={ruleResult[0].conditions} />
+				</Box>
+			);
+			break;
+		default:
+			stepComponent = <Box>something went wrong, yikes</Box>;
+	}
 
 	return (
 		<ChakraProvider theme={theme}>
@@ -30,14 +60,8 @@ export const App = () => {
 				<Button disabled={passedCourses.length === 0} onClick={handleClick}>
 					Crunch it!
 				</Button>
-				{ruleResult && (
-					<Heading>Admission criteria for Information Systems</Heading>
-				)}
-				{ruleResult && <RuleResults ruleResult={ruleResult[0].conditions} />}
-				<CourseList
-					passedCourses={passedCourses}
-					setPassedCourses={setPassedCourses}
-				/>
+				<Button onClick={() => setStep(Step.Input)}>Back</Button>
+				{stepComponent}
 			</Box>
 		</ChakraProvider>
 	);
