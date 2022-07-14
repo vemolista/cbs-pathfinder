@@ -1,4 +1,4 @@
-import { Area, Course, CourseReward, Student } from "../declarations/types";
+import { Area, Course, CourseReward } from "../declarations/types";
 
 // going Array -> Map -> Array is kinda sus
 // TODO: refactor
