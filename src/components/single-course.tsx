@@ -36,7 +36,6 @@ export const SingleCourse = (props: CourseProps) => {
 		<Box
 			border={"1px solid lightgray"}
 			borderRadius={"base"}
-			margin={2}
 			boxShadow={"md"}
 			transitionDuration={"300ms"}
 			bg={checked ? "green.100" : "white"}

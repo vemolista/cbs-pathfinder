@@ -25,7 +25,7 @@ export const CourseList = (props: CourseListProps) => {
 					<Badge fontSize={"2xl"}>{passedCourses.length}</Badge>
 				</HStack>
 			</HStack>
-			<UnorderedList styleType={"none"}>
+			<UnorderedList styleType={"none"} spacing={2} margin={5}>
 				{courses.map((course, i) => {
 					return (
 						<SingleCourse
