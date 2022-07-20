@@ -1,43 +1,72 @@
-import { Box, UnorderedList } from "@chakra-ui/react";
-import { TopLevelCondition } from "json-rules-engine";
+import { UnorderedList, Text, ListItem, Badge, HStack } from "@chakra-ui/react";
+import { NestedCondition, TopLevelCondition } from "json-rules-engine";
 import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
 	// TODO: rename to reflect the type that's expected
-	ruleResult: TopLevelCondition;
+	ruleConditions: TopLevelCondition;
+	ruleResult?: any;
 }
 
 export const RuleResults = (props: RuleResultsProps) => {
-	const { ruleResult } = props;
+	const { ruleConditions, ruleResult } = props;
+
+	console.log("ruleResult passed to component :>> ", ruleResult);
 
 	// TODO: render the typed object instead of doing this
-	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(ruleResult));
+	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(ruleConditions));
+
+	// console.log("ruleConditions :>> ", ruleConditions);
+	// console.log("ruleResultWithoutTypes :>> ", ruleResultWithoutTypes);
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
 	};
 
-	// TODO: refactor - get rid of nested ternary operators 🤮
+	const renderTopLevelOrNestedCondition = (item: any, i: number) => {
+		return isTopLevelCondition(item) ? (
+			<RuleResults
+				key={item + i}
+				ruleConditions={item}
+				ruleResult={item.result}
+			/>
+		) : (
+			<SingleRuleResult key={item + i} ruleResult={item} />
+		);
+	};
+
+	const renderHeader = (topLevelCondition: any) => {
+		return topLevelCondition.all ? (
+			<HStack>
+				<Badge colorScheme={ruleResult ? "green" : "red"}>
+					{ruleResult ? "fulfilled" : "not fulfilled"}
+				</Badge>
+				<Text>All of the following</Text>
+			</HStack>
+		) : (
+			<HStack>
+				<Badge colorScheme={ruleResult ? "green" : "red"}>
+					{ruleResult ? "fulfilled" : "not fulfilled"}
+				</Badge>
+				<Text>At least one of the following</Text>
+			</HStack>
+		);
+	};
+
+	// TODO: Still difficult to read, but better 🤷‍♂️
 	return (
-		<Box>
+		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2}>
+			{renderHeader(ruleResultWithoutTypes)}
 			<UnorderedList>
 				{isTopLevelCondition(ruleResultWithoutTypes) &&
 				ruleResultWithoutTypes.all
-					? ruleResultWithoutTypes.all.map((item: any, i: number) => {
-							return isTopLevelCondition(item) ? (
-								<RuleResults key={i} ruleResult={item} />
-							) : (
-								<SingleRuleResult key={i} ruleResult={item} />
-							);
-					  })
-					: ruleResultWithoutTypes.any.map((item: any, i: number) => {
-							return isTopLevelCondition(item) ? (
-								<RuleResults key={i} ruleResult={item} />
-							) : (
-								<SingleRuleResult key={i} ruleResult={item} />
-							);
-					  })}
+					? ruleResultWithoutTypes.all.map((item: any, i: number) =>
+							renderTopLevelOrNestedCondition(item, i)
+					  )
+					: ruleResultWithoutTypes.any.map((item: any, i: number) =>
+							renderTopLevelOrNestedCondition(item, i)
+					  )}
 			</UnorderedList>
-		</Box>
+		</ListItem>
 	);
 };

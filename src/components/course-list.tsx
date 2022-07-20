@@ -38,7 +38,7 @@ export const CourseList = (props: CourseListProps) => {
 	};
 
 	return (
-		<Box border={"1px solid lightgray"} padding={5}>
+		<Box border={"1px solid lightgray"} borderRadius={"lg"} padding={5}>
 			<HStack
 				padding={5}
 				justify="space-between"
@@ -59,7 +59,7 @@ export const CourseList = (props: CourseListProps) => {
 					/>
 				</InputGroup>
 			</HStack>
-			<Heading as={"h3"}>Courses</Heading>
+			<Heading as={"h2"}>Courses</Heading>
 			<UnorderedList styleType={"none"} spacing={2} margin={5}>
 				{search().map((course, i) => (
 					<SingleCourse

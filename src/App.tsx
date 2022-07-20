@@ -1,4 +1,11 @@
-import { ChakraProvider, Box, theme, Heading, Button } from "@chakra-ui/react";
+import {
+	ChakraProvider,
+	Box,
+	theme,
+	Heading,
+	Button,
+	UnorderedList,
+} from "@chakra-ui/react";
 import { RuleResult } from "json-rules-engine";
 import { useState } from "react";
 import { CourseList } from "./components/course-list";
@@ -43,7 +50,12 @@ export const App = () => {
 			stepComponent = ruleResult && (
 				<Box>
 					<Heading>Admission criteria for Information Systems</Heading>
-					<RuleResults ruleResult={ruleResult[0].conditions} />
+					<UnorderedList>
+						<RuleResults
+							ruleConditions={ruleResult[0].conditions}
+							ruleResult={ruleResult[0].result}
+						/>
+					</UnorderedList>
 				</Box>
 			);
 			break;
@@ -53,10 +65,10 @@ export const App = () => {
 
 	return (
 		<ChakraProvider theme={theme}>
-			<Box padding={10} fontSize="xl" style={{ border: "3px solid black" }}>
-				<Box textAlign={"center"} fontSize={"3xl"} padding={10}>
-					The most beautiful pathfinder (there is literally no other)
-				</Box>
+			<Heading as={"h1"} size={"2xl"} textAlign={"center"} padding={10}>
+				Pathfinder
+			</Heading>
+			<Box padding={10}>
 				<Button disabled={passedCourses.length === 0} onClick={handleClick}>
 					Crunch it!
 				</Button>

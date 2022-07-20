@@ -1,4 +1,4 @@
-import { ListItem, HStack, Box } from "@chakra-ui/react";
+import { ListItem, HStack, Box, Badge, Text } from "@chakra-ui/react";
 
 interface SingleRuleResultProps {
 	ruleResult: {
@@ -15,15 +15,24 @@ export const SingleRuleResult = (props: SingleRuleResultProps) => {
 
 	return (
 		<ListItem
-			border={`2px solid ${result ? "green" : "red"}`}
-			backgroundColor={result ? "lightgreen" : "lightsalmon"}
+			border={`1px solid lightgray`}
+			borderRadius={"base"}
+			padding={2}
+			marginTop={2}
+			marginBottom={2}
+			marginRight={2}
 		>
 			<HStack>
-				<Box>{result ? "fulfilled" : "not fulfilled"}</Box>
-				<Box>{fact}</Box>
+				<Badge colorScheme={result ? "green" : "red"}>
+					{result ? "fulfilled" : "not fulfilled"}
+				</Badge>
+				<Text>
+					{fact}: {value} ECTS (currently: {factResult})
+				</Text>
+				{/* <Box>{fact}</Box>
 				<Box>{value}</Box>
 				<Box>{operator}</Box>
-				<Box>{factResult}</Box>
+				<Box>{factResult}</Box> */}
 			</HStack>
 		</ListItem>
 	);
