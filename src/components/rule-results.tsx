@@ -51,7 +51,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 	return (
 		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2} backgroundColor={ruleResult ? "green.50" : "red.50"}>
 			{renderHeader(ruleResultWithoutTypes)}
-			<UnorderedList>
+			<UnorderedList styleType={"none"}>
 				{isTopLevelCondition(ruleResultWithoutTypes) &&
 				ruleResultWithoutTypes.all
 					? ruleResultWithoutTypes.all.map((item: any, i: number) =>

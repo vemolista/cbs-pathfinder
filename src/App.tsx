@@ -50,7 +50,7 @@ export const App = () => {
 			stepComponent = ruleResult && (
 				<Box>
 					<Heading>Admission criteria for Information Systems</Heading>
-					<UnorderedList>
+					<UnorderedList styleType={"none"}>
 						<RuleResults
 							ruleConditions={ruleResult[0].conditions}
 							ruleResult={ruleResult[0].result}
