@@ -11,13 +11,7 @@ interface RuleResultsProps {
 export const RuleResults = (props: RuleResultsProps) => {
 	const { ruleConditions, ruleResult } = props;
 
-	console.log("ruleResult passed to component :>> ", ruleResult);
-
-	// TODO: render the typed object instead of doing this
-	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(ruleConditions));
-
-	// console.log("ruleConditions :>> ", ruleConditions);
-	// console.log("ruleResultWithoutTypes :>> ", ruleResultWithoutTypes);
+	const ruleResultWithoutTypes = ruleConditions as any;
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
