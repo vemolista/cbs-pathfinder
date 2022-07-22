@@ -1,5 +1,5 @@
 import { UnorderedList, Text, ListItem, Badge, HStack } from "@chakra-ui/react";
-import { NestedCondition, TopLevelCondition } from "json-rules-engine";
+import { TopLevelCondition } from "json-rules-engine";
 import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
@@ -49,7 +49,12 @@ export const RuleResults = (props: RuleResultsProps) => {
 
 	// TODO: Still difficult to read, but better 🤷‍♂️
 	return (
-		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2} backgroundColor={ruleResult ? "green.50" : "red.50"}>
+		<ListItem
+			border={"1px solid lightgray"}
+			borderRadius={"lg"}
+			padding={2}
+			backgroundColor={ruleResult ? "green.50" : "red.50"}
+		>
 			{renderHeader(ruleResultWithoutTypes)}
 			<UnorderedList styleType={"none"}>
 				{isTopLevelCondition(ruleResultWithoutTypes) &&

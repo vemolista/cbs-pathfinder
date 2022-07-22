@@ -1,4 +1,4 @@
-import { ListItem, HStack, Box, Badge, Text } from "@chakra-ui/react";
+import { ListItem, HStack, Badge, Text } from "@chakra-ui/react";
 
 interface SingleRuleResultProps {
 	ruleResult: {
@@ -11,7 +11,7 @@ interface SingleRuleResultProps {
 }
 
 export const SingleRuleResult = (props: SingleRuleResultProps) => {
-	const { result, fact, value, operator, factResult } = props.ruleResult;
+	const { result, fact, value, factResult } = props.ruleResult;
 
 	return (
 		<ListItem
@@ -29,10 +29,6 @@ export const SingleRuleResult = (props: SingleRuleResultProps) => {
 				<Text>
 					{fact}: {value} ECTS (currently: {factResult})
 				</Text>
-				{/* <Box>{fact}</Box>
-				<Box>{value}</Box>
-				<Box>{operator}</Box>
-				<Box>{factResult}</Box> */}
 			</HStack>
 		</ListItem>
 	);
