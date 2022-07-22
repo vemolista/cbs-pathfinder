@@ -21,7 +21,6 @@ export const SingleRuleResult = (props: SingleRuleResultProps) => {
 			padding={2}
 			marginTop={2}
 			marginBottom={2}
-			marginRight={2}
 		>
 			<HStack>
 				<Badge colorScheme={result ? "green" : "red"}>
