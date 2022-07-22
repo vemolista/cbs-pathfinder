@@ -29,10 +29,6 @@ export const SingleRuleResult = (props: SingleRuleResultProps) => {
 				<Text>
 					{fact}: {value} ECTS (currently: {factResult})
 				</Text>
-				{/* <Box>{fact}</Box>
-				<Box>{value}</Box>
-				<Box>{operator}</Box>
-				<Box>{factResult}</Box> */}
 			</HStack>
 		</ListItem>
 	);
