@@ -33,14 +33,14 @@ export const RuleResults = (props: RuleResultsProps) => {
 		return topLevelCondition.all ? (
 			<HStack>
 				<Badge colorScheme={ruleResult ? "green" : "red"}>
-					{ruleResult ? "fulfilled" : "not fulfilled"}
+					{ruleResult ? "Fulfilled" : "Not fulfilled"}
 				</Badge>
 				<Text>All of the following</Text>
 			</HStack>
 		) : (
 			<HStack>
 				<Badge colorScheme={ruleResult ? "green" : "red"}>
-					{ruleResult ? "fulfilled" : "not fulfilled"}
+					{ruleResult ? "Fulfilled" : "Not fulfilled"}
 				</Badge>
 				<Text>At least one of the following</Text>
 			</HStack>
