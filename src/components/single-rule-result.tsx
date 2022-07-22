@@ -16,6 +16,7 @@ export const SingleRuleResult = (props: SingleRuleResultProps) => {
 	return (
 		<ListItem
 			border={`1px solid lightgray`}
+			backgroundColor={result ? "green.50" : "red.50"}
 			borderRadius={"base"}
 			padding={2}
 			marginTop={2}

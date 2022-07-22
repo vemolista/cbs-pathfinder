@@ -49,7 +49,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 
 	// TODO: Still difficult to read, but better 🤷‍♂️
 	return (
-		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2}>
+		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2} backgroundColor={ruleResult ? "green.50" : "red.50"}>
 			{renderHeader(ruleResultWithoutTypes)}
 			<UnorderedList>
 				{isTopLevelCondition(ruleResultWithoutTypes) &&
