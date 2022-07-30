@@ -128,7 +128,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 					: typelessCondition.any.map((item: any, i: number) =>
 							renderTopLevelOrNestedCondition(item, i)
 					  )}
-				{renderTopLevelOrNestedCondition2(typelessCondition, 0)}
+				{/* {renderTopLevelOrNestedCondition2(typelessCondition, 0)} */}
 			</UnorderedList>
 		</ListItem>
 	);
