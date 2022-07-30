@@ -26,7 +26,6 @@ export type Course = {
 	code: string;
 	title: string;
 	rewards: CourseReward[];
-	mandatoryFor?: Programme;
 };
 
 export type Programme = {
