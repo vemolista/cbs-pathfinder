@@ -1,7 +1,7 @@
 import { Rule } from "json-rules-engine";
 import { Area, Programme, ProgrammeLevel } from "../types";
 
-let informationSystemsRulesCompound = new Rule({
+const informationSystemsRules = new Rule({
 	name: "IS Admissions",
 	conditions: {
 		all: [
@@ -41,5 +41,5 @@ export const informationSystems: Programme = {
 	abbreviation: "IS",
 	programmeLevel: ProgrammeLevel.Graduate,
 	mandatoryCourses: [],
-	requirements: informationSystemsRulesCompound,
+	requirements: informationSystemsRules,
 };

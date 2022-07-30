@@ -41,14 +41,14 @@ export const RuleResults = (props: RuleResultsProps) => {
 		return topLevelCondition.all ? (
 			<HStack>
 				<Badge colorScheme={ruleResult ? "green" : "red"}>
-					{ruleResult ? "fulfilled" : "not fulfilled"}
+					{ruleResult ? "Fulfilled" : "Not fulfilled"}
 				</Badge>
 				<Text>All of the following</Text>
 			</HStack>
 		) : (
 			<HStack>
 				<Badge colorScheme={ruleResult ? "green" : "red"}>
-					{ruleResult ? "fulfilled" : "not fulfilled"}
+					{ruleResult ? "Fulfilled" : "Not fulfilled"}
 				</Badge>
 				<Text>At least one of the following</Text>
 			</HStack>
@@ -113,17 +113,21 @@ export const RuleResults = (props: RuleResultsProps) => {
 
 	// TODO: Still difficult to read, but better 🤷‍♂️
 	return (
-		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2}>
-			{renderTopLevelConditionHeader2(typelessCondition)}
-			poop
-			<UnorderedList>
-				{/* {isTopLevelCondition(typelessCondition) && typelessCondition.all
+		<ListItem
+			border={"1px solid lightgray"}
+			borderRadius={"lg"}
+			padding={2}
+			backgroundColor={ruleResult ? "green.50" : "red.50"}
+		>
+			{renderTopLevelConditionHeader(typelessCondition)}
+			<UnorderedList styleType={"none"}>
+				{isTopLevelCondition(typelessCondition) && typelessCondition.all
 					? typelessCondition.all.map((item: any, i: number) =>
 							renderTopLevelOrNestedCondition(item, i)
 					  )
 					: typelessCondition.any.map((item: any, i: number) =>
 							renderTopLevelOrNestedCondition(item, i)
-					  )} */}
+					  )}
 				{renderTopLevelOrNestedCondition2(typelessCondition, 0)}
 			</UnorderedList>
 		</ListItem>
