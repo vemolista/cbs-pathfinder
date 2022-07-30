@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Ease the process of figuring out admission requirements at [Copenhagen Business School (CBS)](https://www.cbs.dk/en).
+**Goal of this project:** Ease the process of figuring out admission requirements at [Copenhagen Business School (CBS)](https://www.cbs.dk/en).
+
+**Goal of this repository:** Prove that the crux of this project is not software engineering related.
 
 ## Background
 
