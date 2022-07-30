@@ -39,5 +39,5 @@ export const eBusiness: Programme = {
 	programmeLevel: ProgrammeLevel.Graduate,
 	mandatoryCourses: [],
 	requirements: eBusinessRules,
-	legalClaimFor: digitalManagement,
+	legalClaimBy: digitalManagement,
 };
