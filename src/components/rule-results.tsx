@@ -10,7 +10,6 @@ interface RuleResultsProps {
 export const RuleResults = (props: RuleResultsProps) => {
 	const { evaluatedCondition, ruleResult } = props;
 
-	// TODO: render the typed object instead of doing this
 	const typelessCondition = evaluatedCondition as any;
 
 	const isTopLevelCondition = (conditions: any) => {
