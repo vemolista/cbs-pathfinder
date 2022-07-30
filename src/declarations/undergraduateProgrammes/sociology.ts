@@ -1,7 +1,7 @@
 import * as courses from "../courses/sociology";
 import { Programme, ProgrammeLevel } from "../types";
 
-export const digitalManagement: Programme = {
+export const sociology: Programme = {
 	title: "BSc BA and Sociology",
 	abbreviation: "SOC",
 	programmeLevel: ProgrammeLevel.Undergraduate,
