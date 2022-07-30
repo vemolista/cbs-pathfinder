@@ -1,4 +1,11 @@
-import { ChakraProvider, Box, theme, Heading, Button } from "@chakra-ui/react";
+import {
+	ChakraProvider,
+	Box,
+	theme,
+	Heading,
+	Button,
+	ButtonGroup,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { GraduateProgrammes } from "./components/graduate-programmes";
 import { CourseList } from "./components/course-list";
@@ -24,9 +31,7 @@ export const App = () => {
 			);
 			break;
 		case Step.Results:
-			stepComponent = (
-				<GraduateProgrammes passedCourses={passedCourses} />
-			);
+			stepComponent = <GraduateProgrammes passedCourses={passedCourses} />;
 			break;
 		default:
 			stepComponent = <Box>something went wrong, yikes</Box>;
@@ -34,17 +39,40 @@ export const App = () => {
 
 	return (
 		<ChakraProvider theme={theme}>
-			<Heading as={"h1"} size={"2xl"} textAlign={"center"} padding={10}>
-				Pathfinder
-			</Heading>
 			<Box padding={10}>
-				<Button
-					disabled={passedCourses.length === 0}
-					onClick={() => setStep(Step.Results)}
+				<Heading as={"h1"} size={"2xl"} textAlign={"center"} margin={10}>
+					Pathfinder
+				</Heading>
+				<Box
+					marginBottom={5}
+					padding={5}
+					border={"1px solid lightgray"}
+					borderRadius={"lg"}
 				>
-					Crunch it!
-				</Button>
-				<Button onClick={() => setStep(Step.Input)}>Back</Button>
+					<ButtonGroup spacing={5}>
+						{step === Step.Input && (
+							<>
+								<Button
+									disabled={passedCourses.length === 0}
+									onClick={() => setStep(Step.Results)}
+								>
+									Calculate graduate programme admissions
+								</Button>
+								<Button
+									disabled={passedCourses.length === 0}
+									colorScheme={"red"}
+									variant={"outline"}
+									onClick={() => setPassedCourses([])}
+								>
+									Clear passed courses
+								</Button>
+							</>
+						)}
+						{step === Step.Results && (
+							<Button onClick={() => setStep(Step.Input)}>Back</Button>
+						)}
+					</ButtonGroup>
+				</Box>
 				{stepComponent}
 			</Box>
 		</ChakraProvider>

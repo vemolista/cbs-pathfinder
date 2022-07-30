@@ -25,8 +25,9 @@ export const SingleCourse = (props: CourseProps) => {
 
 	useEffect(() => {
 		if (passedCourses.includes(course)) setChecked(true);
+		else setChecked(false);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [passedCourses]);
 
 	const handleChange = (course: Course) => {
 		if (checked) {
