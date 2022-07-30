@@ -16,6 +16,10 @@ import {
 	BA_BDMAO1023U,
 	BA_BDMAO1024U,
 } from "../declarations/courses/digitalManagement";
+import {
+	BA_BSOCO1810U,
+	BA_BSOCO1811U,
+} from "../declarations/courses/sociology";
 import { Course } from "../declarations/types";
 import { SingleCourse } from "./single-course";
 
@@ -26,7 +30,14 @@ interface CourseListProps {
 
 export const CourseList = (props: CourseListProps) => {
 	const { passedCourses, setPassedCourses } = props;
-	const courses = [BA_BDMAO1002U, BA_BDMAO1022U, BA_BDMAO1023U, BA_BDMAO1024U];
+	const courses = [
+		BA_BDMAO1002U,
+		BA_BDMAO1022U,
+		BA_BDMAO1023U,
+		BA_BDMAO1024U,
+		BA_BSOCO1810U,
+		BA_BSOCO1811U,
+	];
 	const [searchValue, setSearchValue] = useState("");
 
 	const search = () => {
