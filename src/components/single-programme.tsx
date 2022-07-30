@@ -30,10 +30,6 @@ export const SingleProgramme = (props: SingleProgrammeProps) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [currentProgramme]);
 
-	const handleChange = (programme: Programme) => {
-		setCurrentProgramme(programme);
-	};
-
 	return (
 		<Box
 			border={"1px solid lightgray"}
@@ -47,7 +43,7 @@ export const SingleProgramme = (props: SingleProgrammeProps) => {
 					<Radio
 						size={"lg"}
 						marginRight={5}
-						onChange={() => handleChange(programme)}
+						onChange={() => setCurrentProgramme(programme)}
 						isChecked={checked}
 					/>
 					<VStack alignItems={"flex-start"}>
