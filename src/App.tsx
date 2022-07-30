@@ -24,9 +24,7 @@ export const App = () => {
 			);
 			break;
 		case Step.Results:
-			stepComponent = (
-				<GraduateProgrammes passedCourses={passedCourses} />
-			);
+			stepComponent = <GraduateProgrammes passedCourses={passedCourses} />;
 			break;
 		default:
 			stepComponent = <Box>something went wrong, yikes</Box>;

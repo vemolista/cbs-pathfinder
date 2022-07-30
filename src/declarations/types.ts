@@ -1,5 +1,11 @@
 import { Rule } from "json-rules-engine";
 
+export enum ConditionKind {
+	TopLevelAll,
+	TopLevelAny,
+	NotTopLevel,
+}
+
 export enum Area {
 	"Macroeconomics",
 	"Microeconomics",
