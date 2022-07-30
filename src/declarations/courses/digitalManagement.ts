@@ -1,8 +1,10 @@
 import { Area, Course } from "../types";
+import { digitalManagement } from "../undergraduateProgrammes/digitalManagement";
 
 export const BA_BDMAO1002U: Course = {
 	code: "BA-BDMAO1002U",
 	title: "Digital Technologies and Data-Driven Business",
+	mandatoryFor: digitalManagement,
 	rewards: [
 		{
 			area: Area.IT,
@@ -18,6 +20,7 @@ export const BA_BDMAO1002U: Course = {
 export const BA_BDMAO1022U: Course = {
 	code: "BA-BDMAO1022U",
 	title: "Managing Communication, Marketing and Relations",
+	mandatoryFor: digitalManagement,
 	rewards: [
 		{
 			area: Area["Business Administration"],
@@ -33,6 +36,7 @@ export const BA_BDMAO1022U: Course = {
 export const BA_BDMAO1023U: Course = {
 	code: "BA-BDMAO1023U",
 	title: "Business Data Analytics, Quantitative Methods and Visualization",
+	mandatoryFor: digitalManagement,
 	rewards: [
 		{
 			area: Area["Business Administration"],
@@ -48,6 +52,7 @@ export const BA_BDMAO1023U: Course = {
 export const BA_BDMAO1024U: Course = {
 	code: "BA-BDMAO1024U",
 	title: "Economics in the Digital Age",
+	mandatoryFor: digitalManagement,
 	rewards: [
 		{
 			area: Area.Microeconomics,
