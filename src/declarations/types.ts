@@ -9,7 +9,7 @@ export enum Area {
 	"Accounting",
 	"Marketing",
 	"Communication",
-	"Social Studies"
+	"Social Studies",
 }
 
 export enum ProgrammeLevel {
