@@ -7,22 +7,33 @@ import {
 	ButtonGroup,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { GraduateProgrammes } from "./components/graduate-programmes";
 import { CourseList } from "./components/course-list";
-import { Course } from "./declarations/types";
+import { GraduateProgrammes } from "./components/graduate-programmes";
+import { ProgrammeList } from "./components/programme-list";
+import { Course, Programme } from "./declarations/types";
 
 enum Step {
-	"Input",
+	"InputProgramme",
+	"InputCourses",
 	"Results",
 }
 
 export const App = () => {
-	const [step, setStep] = useState<Step>(Step.Input);
+	const [step, setStep] = useState<Step>(Step.InputProgramme);
 	const [passedCourses, setPassedCourses] = useState<Course[]>([]);
+	const [currentProgramme, setCurrentProgramme] = useState<Programme>();
 	let stepComponent;
 
 	switch (step) {
-		case Step.Input:
+		case Step.InputProgramme:
+			stepComponent = (
+				<ProgrammeList
+					currentProgramme={currentProgramme}
+					setCurrentProgramme={setCurrentProgramme}
+				/>
+			);
+			break;
+		case Step.InputCourses:
 			stepComponent = (
 				<CourseList
 					passedCourses={passedCourses}
@@ -50,26 +61,20 @@ export const App = () => {
 					borderRadius={"lg"}
 				>
 					<ButtonGroup spacing={5}>
-						{step === Step.Input && (
-							<>
-								<Button
-									disabled={passedCourses.length === 0}
-									onClick={() => setStep(Step.Results)}
-								>
-									Calculate graduate programme admissions
-								</Button>
-								<Button
-									disabled={passedCourses.length === 0}
-									colorScheme={"red"}
-									variant={"outline"}
-									onClick={() => setPassedCourses([])}
-								>
-									Clear passed courses
-								</Button>
-							</>
+						{step < Object.keys(Step).length / 2 - 1 && (
+							<Button onClick={() => setStep(step + 1)}>Next</Button>
 						)}
-						{step === Step.Results && (
-							<Button onClick={() => setStep(Step.Input)}>Back</Button>
+						{step > 0 && (
+							<Button onClick={() => setStep(step - 1)}>Back</Button>
+						)}
+						{step === Step.InputCourses && (
+							<Button
+								colorScheme={"red"}
+								variant={"outline"}
+								onClick={() => setPassedCourses([])}
+							>
+								Clear passed courses
+							</Button>
 						)}
 					</ButtonGroup>
 				</Box>
