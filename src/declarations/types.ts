@@ -34,6 +34,7 @@ export type Programme = {
 	programmeLevel: ProgrammeLevel;
 	mandatoryCourses: Course[];
 	requirements?: Rule;
+	legalClaimFor?: Programme;
 };
 
 export type Student = {
