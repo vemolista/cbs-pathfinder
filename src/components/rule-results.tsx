@@ -1,23 +1,17 @@
 import { UnorderedList, Text, ListItem, Badge, HStack } from "@chakra-ui/react";
-import { NestedCondition, TopLevelCondition } from "json-rules-engine";
+import { TopLevelCondition } from "json-rules-engine";
 import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
-	// TODO: rename to reflect the type that's expected
-	ruleConditions: TopLevelCondition;
+	evaluatedCondition: TopLevelCondition;
 	ruleResult?: any;
 }
 
 export const RuleResults = (props: RuleResultsProps) => {
-	const { ruleConditions, ruleResult } = props;
-
-	console.log("ruleResult passed to component :>> ", ruleResult);
+	const { evaluatedCondition, ruleResult } = props;
 
 	// TODO: render the typed object instead of doing this
-	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(ruleConditions));
-
-	// console.log("ruleConditions :>> ", ruleConditions);
-	// console.log("ruleResultWithoutTypes :>> ", ruleResultWithoutTypes);
+	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(evaluatedCondition));
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
@@ -27,7 +21,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 		return isTopLevelCondition(item) ? (
 			<RuleResults
 				key={item + i}
-				ruleConditions={item}
+				evaluatedCondition={item}
 				ruleResult={item.result}
 			/>
 		) : (

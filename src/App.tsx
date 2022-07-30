@@ -52,7 +52,7 @@ export const App = () => {
 					<Heading>Admission criteria for Information Systems</Heading>
 					<UnorderedList>
 						<RuleResults
-							ruleConditions={ruleResult[0].conditions}
+							evaluatedCondition={ruleResult[0].conditions}
 							ruleResult={ruleResult[0].result}
 						/>
 					</UnorderedList>
