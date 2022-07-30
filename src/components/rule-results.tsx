@@ -11,7 +11,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 	const { evaluatedCondition, ruleResult } = props;
 
 	// TODO: render the typed object instead of doing this
-	const ruleResultWithoutTypes = JSON.parse(JSON.stringify(evaluatedCondition));
+	const typelessCondition = evaluatedCondition as any;
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
@@ -50,14 +50,13 @@ export const RuleResults = (props: RuleResultsProps) => {
 	// TODO: Still difficult to read, but better 🤷‍♂️
 	return (
 		<ListItem border={"1px solid lightgray"} borderRadius={"lg"} padding={2}>
-			{renderHeader(ruleResultWithoutTypes)}
+			{renderHeader(typelessCondition)}
 			<UnorderedList>
-				{isTopLevelCondition(ruleResultWithoutTypes) &&
-				ruleResultWithoutTypes.all
-					? ruleResultWithoutTypes.all.map((item: any, i: number) =>
+				{isTopLevelCondition(typelessCondition) && typelessCondition.all
+					? typelessCondition.all.map((item: any, i: number) =>
 							renderTopLevelOrNestedCondition(item, i)
 					  )
-					: ruleResultWithoutTypes.any.map((item: any, i: number) =>
+					: typelessCondition.any.map((item: any, i: number) =>
 							renderTopLevelOrNestedCondition(item, i)
 					  )}
 			</UnorderedList>
