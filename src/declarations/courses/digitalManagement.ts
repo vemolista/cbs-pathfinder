@@ -1,5 +1,4 @@
 import { Area, Course } from "../types";
-import { digitalManagement } from "../undergraduateProgrammes/digitalManagement";
 
 export const BA_BDMAO1002U: Course = {
 	code: "BA-BDMAO1002U",
