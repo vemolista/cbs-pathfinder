@@ -42,7 +42,7 @@ export const SingleGraduateProgramme = (
 			<Heading>{programme.title}</Heading>
 			{ruleResult && (
 				<RuleResults
-					ruleConditions={ruleResult[0].conditions}
+					evaluatedCondition={ruleResult[0].conditions}
 					ruleResult={ruleResult[0].result}
 				/>
 			)}

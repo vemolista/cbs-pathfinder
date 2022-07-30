@@ -3,15 +3,14 @@ import { TopLevelCondition } from "json-rules-engine";
 import { SingleRuleResult } from "./single-rule-result";
 
 interface RuleResultsProps {
-	// TODO: rename to reflect the type that's expected
-	ruleConditions: TopLevelCondition;
+	evaluatedCondition: TopLevelCondition;
 	ruleResult?: any;
 }
 
 export const RuleResults = (props: RuleResultsProps) => {
-	const { ruleConditions, ruleResult } = props;
+	const { evaluatedCondition, ruleResult } = props;
 
-	const ruleResultWithoutTypes = ruleConditions as any;
+	const ruleResultWithoutTypes = evaluatedCondition as any;
 
 	const isTopLevelCondition = (conditions: any) => {
 		return conditions.any || conditions.all;
@@ -21,7 +20,7 @@ export const RuleResults = (props: RuleResultsProps) => {
 		return isTopLevelCondition(item) ? (
 			<RuleResults
 				key={item + i}
-				ruleConditions={item}
+				evaluatedCondition={item}
 				ruleResult={item.result}
 			/>
 		) : (
