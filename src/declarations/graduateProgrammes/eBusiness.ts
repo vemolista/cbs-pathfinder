@@ -15,16 +15,16 @@ let eBusinessRules = new Rule({
 				operator: "greaterThanInclusive",
 				value: 30,
 			},
-            {
+			{
 				fact: Area[Area["Social Studies"]],
 				operator: "greaterThanInclusive",
 				value: 30,
 			},
-            {
+			{
 				fact: Area[Area.Communication],
 				operator: "greaterThanInclusive",
 				value: 30,
-			}
+			},
 		],
 	},
 	event: {
