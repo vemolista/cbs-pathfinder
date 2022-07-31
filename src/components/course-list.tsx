@@ -21,6 +21,8 @@ import {
 	BA_BSOCO1811U,
 } from "../declarations/courses/sociology";
 import { Course } from "../declarations/types";
+import { digitalManagement } from "../declarations/undergraduateProgrammes/digitalManagement";
+import { sociology } from "../declarations/undergraduateProgrammes/sociology";
 import { SingleCourse } from "./single-course";
 
 interface CourseListProps {
@@ -31,13 +33,10 @@ interface CourseListProps {
 export const CourseList = (props: CourseListProps) => {
 	const { passedCourses, setPassedCourses } = props;
 	const courses = [
-		BA_BDMAO1002U,
-		BA_BDMAO1022U,
-		BA_BDMAO1023U,
-		BA_BDMAO1024U,
-		BA_BSOCO1810U,
-		BA_BSOCO1811U,
+		...digitalManagement.mandatoryCourses,
+		...sociology.mandatoryCourses,
 	];
+
 	const [searchValue, setSearchValue] = useState("");
 
 	const search = () => {
