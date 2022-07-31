@@ -1,5 +1,6 @@
 import { Rule } from "json-rules-engine";
 import { Area, Programme, ProgrammeLevel } from "../types";
+import { digitalManagement } from "../undergraduateProgrammes/digitalManagement";
 
 let eBusinessRules = new Rule({
 	name: "EB Admissions",
@@ -15,16 +16,16 @@ let eBusinessRules = new Rule({
 				operator: "greaterThanInclusive",
 				value: 30,
 			},
-            {
+			{
 				fact: Area[Area["Social Studies"]],
 				operator: "greaterThanInclusive",
 				value: 30,
 			},
-            {
+			{
 				fact: Area[Area.Communication],
 				operator: "greaterThanInclusive",
 				value: 30,
-			}
+			},
 		],
 	},
 	event: {
@@ -38,4 +39,5 @@ export const eBusiness: Programme = {
 	programmeLevel: ProgrammeLevel.Graduate,
 	mandatoryCourses: [],
 	requirements: eBusinessRules,
+	legalClaimBy: digitalManagement,
 };

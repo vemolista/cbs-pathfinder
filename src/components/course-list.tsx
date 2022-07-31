@@ -10,23 +10,26 @@ import {
 	Heading,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-	BA_BDMAO1002U,
-	BA_BDMAO1022U,
-	BA_BDMAO1023U,
-	BA_BDMAO1024U,
-} from "../declarations/courses/digitalManagement";
-import { Course } from "../declarations/types";
+import { Course, Programme } from "../declarations/types";
+import { digitalManagement } from "../declarations/undergraduateProgrammes/digitalManagement";
+import { sociology } from "../declarations/undergraduateProgrammes/sociology";
 import { SingleCourse } from "./single-course";
 
 interface CourseListProps {
+	currentProgramme: Programme;
 	passedCourses: Course[];
 	setPassedCourses: React.Dispatch<React.SetStateAction<Course[]>>;
 }
 
 export const CourseList = (props: CourseListProps) => {
-	const { passedCourses, setPassedCourses } = props;
-	const courses = [BA_BDMAO1002U, BA_BDMAO1022U, BA_BDMAO1023U, BA_BDMAO1024U];
+	const { passedCourses, setPassedCourses, currentProgramme } = props;
+
+	const courses: Course[] = [
+		...digitalManagement.mandatoryCourses,
+		...sociology.mandatoryCourses,
+	].filter((course) => !currentProgramme.mandatoryCourses.includes(course));
+	courses.unshift(...currentProgramme.mandatoryCourses);
+
 	const [searchValue, setSearchValue] = useState("");
 
 	const search = () => {

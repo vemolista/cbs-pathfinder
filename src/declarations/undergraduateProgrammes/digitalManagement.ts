@@ -1,9 +1,4 @@
-import {
-	BA_BDMAO1002U,
-	BA_BDMAO1022U,
-	BA_BDMAO1023U,
-	BA_BDMAO1024U,
-} from "../courses/digitalManagement";
+import * as courses from "../courses/digitalManagement";
 import { Programme, ProgrammeLevel } from "../types";
 
 export const digitalManagement: Programme = {
@@ -11,9 +6,9 @@ export const digitalManagement: Programme = {
 	abbreviation: "DM",
 	programmeLevel: ProgrammeLevel.Undergraduate,
 	mandatoryCourses: [
-		BA_BDMAO1002U,
-		BA_BDMAO1022U,
-		BA_BDMAO1023U,
-		BA_BDMAO1024U,
+		courses.BA_BDMAO1002U,
+		courses.BA_BDMAO1022U,
+		courses.BA_BDMAO1023U,
+		courses.BA_BDMAO1024U,
 	],
 };

@@ -9,7 +9,7 @@ export enum Area {
 	"Accounting",
 	"Marketing",
 	"Communication",
-	"Social Studies"
+	"Social Studies",
 }
 
 export enum ProgrammeLevel {
@@ -34,6 +34,7 @@ export type Programme = {
 	programmeLevel: ProgrammeLevel;
 	mandatoryCourses: Course[];
 	requirements?: Rule;
+	legalClaimBy?: Programme;
 };
 
 export type Student = {
