@@ -44,8 +44,9 @@ export const App = () => {
 			);
 			break;
 		case Step.InputCourses:
-			stepComponent = (
+			stepComponent = currentProgramme && (
 				<CourseList
+					currentProgramme={currentProgramme}
 					passedCourses={passedCourses}
 					setPassedCourses={setPassedCourses}
 				/>
