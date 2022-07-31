@@ -10,16 +10,6 @@ import {
 	Heading,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-	BA_BDMAO1002U,
-	BA_BDMAO1022U,
-	BA_BDMAO1023U,
-	BA_BDMAO1024U,
-} from "../declarations/courses/digitalManagement";
-import {
-	BA_BSOCO1810U,
-	BA_BSOCO1811U,
-} from "../declarations/courses/sociology";
 import { Course } from "../declarations/types";
 import { digitalManagement } from "../declarations/undergraduateProgrammes/digitalManagement";
 import { sociology } from "../declarations/undergraduateProgrammes/sociology";
